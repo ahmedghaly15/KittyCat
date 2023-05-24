@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-KittyCat app is for cats lovers who are interested in cats.
+KittyCat is an app for cats lovers who are interested in cats.
 
 A few resources to get you started if this is your first Flutter project:
 

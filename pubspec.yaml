@@ -28,5 +28,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+    - assets/images/beautiful pics/
+    - assets/images/cartoon images/
     - assets/app icon.png
