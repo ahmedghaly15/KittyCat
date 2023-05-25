@@ -18,7 +18,7 @@ class AppTheme {
           scrolledUnderElevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle(
             systemNavigationBarColor: AppColors.scaffoldBackgroundColor,
-            statusBarColor: AppColors.kPrimaryColor,
+            statusBarColor: Colors.transparent,
             statusBarBrightness: Brightness.light,
           ),
         ),

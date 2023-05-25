@@ -12,7 +12,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
-      itemCount: dummyData.length,
+      itemCount: cardsDummyData.length,
       padding: const EdgeInsets.symmetric(
         vertical: 20,
         horizontal: 10,
@@ -26,7 +26,7 @@ class HomeViewBody extends StatelessWidget {
             horizontalOffset: 300,
             child: FadeInAnimation(
               child: CardItem(
-                model: dummyData[index],
+                model: cardsDummyData[index],
                 index: index,
               ),
             ),

@@ -7,7 +7,7 @@ class CardItemModel {
   CardItemModel({required this.title, required this.image});
 }
 
-List<CardItemModel> dummyData = [
+List<CardItemModel> cardsDummyData = [
   CardItemModel(
     title: "Cats Breeding",
     image: AppAssets.breedingCats,

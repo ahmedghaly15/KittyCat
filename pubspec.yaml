@@ -7,6 +7,7 @@ environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
+  animate_do: ^3.0.2
   cached_network_image: ^3.2.3
   flutter:
     sdk: flutter
@@ -30,6 +31,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/images/
     - assets/images/beautiful pics/
     - assets/images/cartoon images/
     - assets/app icon.png

@@ -1,4 +1,5 @@
 class AppAssets {
+  static const String buttonArrow = "assets/images/button-one.png";
   static const String breedingCats =
       "assets/images/cartoon images/breeding_cats.png";
 
