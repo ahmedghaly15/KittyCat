@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kitty_cat/core/global/app_navigation.dart';
 import 'package:kitty_cat/core/models/card_item_model.dart';
+import 'package:kitty_cat/features/home/presentation/views/cats_breeding_view.dart';
 
-import '../../../../core/global/app_styles.dart';
+import '../../../../../core/global/app_styles.dart';
 
 class CardItem extends StatelessWidget {
   const CardItem({
@@ -17,10 +19,13 @@ class CardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        if (index == 0) {
+          AppNavigation.navigateTo(screen: const CatsBreedingView());
+        }
         // TODO: according to index we navigate to the screen
       },
       child: Card(
-        color: const Color.fromARGB(255, 255, 231, 219),
+        color: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
         ),

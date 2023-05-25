@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+
 import 'package:kitty_cat/core/models/card_item_model.dart';
 
 import 'card_item.dart';
@@ -17,9 +19,18 @@ class HomeViewBody extends StatelessWidget {
       ),
       separatorBuilder: (context, index) => const SizedBox(height: 8),
       itemBuilder: (context, index) {
-        return CardItem(
-          model: dummyData[index],
-          index: index,
+        return AnimationConfiguration.staggeredList(
+          position: index,
+          duration: const Duration(milliseconds: 750),
+          child: SlideAnimation(
+            horizontalOffset: 300,
+            child: FadeInAnimation(
+              child: CardItem(
+                model: dummyData[index],
+                index: index,
+              ),
+            ),
+          ),
         );
       },
     );
