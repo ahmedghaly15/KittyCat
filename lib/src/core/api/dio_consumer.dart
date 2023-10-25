@@ -11,7 +11,6 @@ import 'app_interceptors.dart';
 import 'end_points.dart';
 import 'status_code.dart';
 
-
 class DioConsumer implements ApiConsumer {
   final Dio client;
 

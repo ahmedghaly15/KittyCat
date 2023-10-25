@@ -38,7 +38,12 @@ class CardItem extends StatelessWidget {
                 backgroundImage: AssetImage(model.image),
               ),
               const SizedBox(width: 10),
-              Text(model.title, style: AppTextStyles.textStyle18Semibold),
+              Text(
+                model.title,
+                style: AppTextStyles.textStyle18.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),

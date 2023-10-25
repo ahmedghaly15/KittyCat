@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kitty_cat/src/config/routes/app_router.dart';
 import 'package:kitty_cat/src/core/utils/service_locator.dart';
+import 'package:kitty_cat/src/features/home/presentation/cubit/home_cubit.dart';
 import 'package:reusable_components/reusable_components.dart';
 
 import 'app_routes_observer.dart';
@@ -19,16 +21,19 @@ class KittyCat extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, context) => MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: AppStrings.appTitle,
-        theme: AppThemes.lightTheme(),
-        routerConfig: serviceLocator.get<AppRouter>().config(
-              navigatorObservers: () => <NavigatorObserver>[
-                AppRoutesObserver(),
-                AutoRouteObserver(),
-              ],
-            ),
+      builder: (_, context) => BlocProvider(
+        create: (context) => serviceLocator.get<HomeCubit>()..getArticles(),
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: AppStrings.appTitle,
+          theme: AppThemes.lightTheme(),
+          routerConfig: serviceLocator.get<AppRouter>().config(
+                navigatorObservers: () => <NavigatorObserver>[
+                  AppRoutesObserver(),
+                  AutoRouteObserver(),
+                ],
+              ),
+        ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/models/cats_breeding_item_model.dart';
+import '../../features/home/data/models/article_model.dart';
 import '../../features/home/presentation/views/all_blog.dart';
 import '../../features/home/presentation/views/cats_breeding_item_details_view.dart';
 import '../../features/home/presentation/views/cats_breeding_view.dart';

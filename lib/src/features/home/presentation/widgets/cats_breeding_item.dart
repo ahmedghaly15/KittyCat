@@ -1,24 +1,26 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kitty_cat/src/features/home/data/models/article_model.dart';
 
-import '../../../../core/models/cats_breeding_item_model.dart';
+import '../../../../core/widgets/custom_error_icon.dart';
 import '/src/config/routes/app_router.dart';
 import '/src/core/utils/app_colors.dart';
 
 class CatsBreedingItem extends StatelessWidget {
   const CatsBreedingItem({
     Key? key,
-    required this.model,
+    required this.article,
   }) : super(key: key);
 
-  final CatsBreedingModel model;
+  final ArticleModel article;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.pushRoute(
-        CatsBreedingItemDetailsRoute(model: model),
+        CatsBreedingItemDetailsRoute(article: article),
       ),
       child: Card(
         shape: RoundedRectangleBorder(
@@ -35,28 +37,30 @@ class CatsBreedingItem extends StatelessWidget {
               ClipOval(
                 clipBehavior: Clip.hardEdge,
                 child: Hero(
-                  tag: model.id,
+                  tag: article.id!,
                   child: CachedNetworkImage(
-                    imageUrl: model.imageUrl,
+                    imageUrl: article.coverImage!,
                     errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
-                    width: 100,
-                    height: 100,
+                        const CustomErrorIcon(),
+                    width: 100.w,
+                    height: 100.w,
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
-                model.title,
+                article.title!,
                 style: Theme.of(context).textTheme.titleMedium,
                 textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               const Spacer(),
               InkWell(
                 splashColor: AppColors.kPrimaryColor.withOpacity(0.5),
                 onTap: () => context.pushRoute(
-                  CatsBreedingItemDetailsRoute(model: model),
+                  CatsBreedingItemDetailsRoute(article: article),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

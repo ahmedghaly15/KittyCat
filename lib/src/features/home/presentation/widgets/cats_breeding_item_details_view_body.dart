@@ -1,17 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:kitty_cat/src/core/widgets/custom_error_icon.dart';
+import 'package:kitty_cat/src/features/home/data/models/article_model.dart';
 
-import '../../../../core/models/cats_breeding_item_model.dart';
 import '../views/details.dart';
 
 class CatsBreedingItemDetailsViewBody extends StatelessWidget {
   const CatsBreedingItemDetailsViewBody({
     Key? key,
-    required this.model,
+    required this.article,
   }) : super(key: key);
 
-  final CatsBreedingModel model;
+  final ArticleModel article;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +23,14 @@ class CatsBreedingItemDetailsViewBody extends StatelessWidget {
         children: <Widget>[
           Positioned(
             child: Hero(
-              tag: model.id,
+              tag: article.id!,
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.45,
                 width: double.maxFinite,
                 child: CachedNetworkImage(
-                  imageUrl: model.imageUrl,
+                  imageUrl: article.coverImage!,
                   fit: BoxFit.cover,
+                  errorWidget: (context, url, error) => const CustomErrorIcon(),
                 ),
               ),
             ),
@@ -47,7 +49,7 @@ class CatsBreedingItemDetailsViewBody extends StatelessWidget {
           ),
           Positioned(
             top: 320,
-            child: DetailsView(details: model),
+            child: DetailsView(details: article),
           ),
         ],
       ),

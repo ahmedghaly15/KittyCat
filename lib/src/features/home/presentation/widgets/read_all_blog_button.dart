@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:reusable_components/reusable_components.dart';
 
-import '../../../../core/models/cats_breeding_item_model.dart';
+import '../../data/models/article_model.dart';
 import '/src/config/routes/app_router.dart';
 import '/src/core/utils/app_colors.dart';
 import '/src/core/utils/app_text_styles.dart';
@@ -14,7 +14,7 @@ class ReadAllBlogButton extends StatelessWidget {
     required this.details,
   });
 
-  final CatsBreedingModel details;
+  final ArticleModel details;
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +25,17 @@ class ReadAllBlogButton extends StatelessWidget {
       backgroundColor: AppColors.kPrimaryColor,
       onPressed: () => context.pushRoute(
         AllBlogRoute(
-          title: details.title,
-          details: details.details,
+          title: details.title!,
+          details: details.body!,
         ),
       ),
       hasPrefix: false,
       child: Center(
         child: Text(
           'Read All Blog',
-          style: AppTextStyles.textStyle16Semibold.copyWith(
+          style: AppTextStyles.textStyle16.copyWith(
             color: Colors.white,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),

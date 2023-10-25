@@ -14,7 +14,9 @@ class AppThemes {
         fontFamily: AppStrings.fontFamily,
         appBarTheme: AppBarTheme(
           centerTitle: true,
-          titleTextStyle: AppTextStyles.textStyle28Semibold,
+          titleTextStyle: AppTextStyles.textStyle28.copyWith(
+            fontWeight: FontWeight.w600,
+          ),
           backgroundColor: Colors.transparent,
           toolbarHeight: 70.h,
           elevation: 0,

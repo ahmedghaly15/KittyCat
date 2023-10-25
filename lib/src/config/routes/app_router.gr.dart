@@ -38,7 +38,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: CatsBreedingItemDetailsView(
           key: args.key,
-          model: args.model,
+          article: args.article,
         ),
       );
     },
@@ -124,13 +124,13 @@ class CatsBreedingItemDetailsRoute
     extends PageRouteInfo<CatsBreedingItemDetailsRouteArgs> {
   CatsBreedingItemDetailsRoute({
     Key? key,
-    required CatsBreedingModel model,
+    required ArticleModel article,
     List<PageRouteInfo>? children,
   }) : super(
           CatsBreedingItemDetailsRoute.name,
           args: CatsBreedingItemDetailsRouteArgs(
             key: key,
-            model: model,
+            article: article,
           ),
           initialChildren: children,
         );
@@ -144,16 +144,16 @@ class CatsBreedingItemDetailsRoute
 class CatsBreedingItemDetailsRouteArgs {
   const CatsBreedingItemDetailsRouteArgs({
     this.key,
-    required this.model,
+    required this.article,
   });
 
   final Key? key;
 
-  final CatsBreedingModel model;
+  final ArticleModel article;
 
   @override
   String toString() {
-    return 'CatsBreedingItemDetailsRouteArgs{key: $key, model: $model}';
+    return 'CatsBreedingItemDetailsRouteArgs{key: $key, article: $article}';
   }
 }
 
@@ -162,7 +162,7 @@ class CatsBreedingItemDetailsRouteArgs {
 class DetailsRoute extends PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
     Key? key,
-    required CatsBreedingModel details,
+    required ArticleModel details,
     List<PageRouteInfo>? children,
   }) : super(
           DetailsRoute.name,
@@ -187,7 +187,7 @@ class DetailsRouteArgs {
 
   final Key? key;
 
-  final CatsBreedingModel details;
+  final ArticleModel details;
 
   @override
   String toString() {

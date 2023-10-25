@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:kitty_cat/src/features/home/data/models/article_model.dart';
 
 import '../widgets/read_all_blog_button.dart';
-import '../../../../core/models/cats_breeding_item_model.dart';
 
 @RoutePage()
 class DetailsView extends StatelessWidget {
   const DetailsView({Key? key, required this.details}) : super(key: key);
 
-  final CatsBreedingModel details;
+  final ArticleModel details;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class DetailsView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            details.title,
+            details.title!,
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -39,7 +39,7 @@ class DetailsView extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Text(
-            details.details,
+            details.body!,
             maxLines: 15,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
